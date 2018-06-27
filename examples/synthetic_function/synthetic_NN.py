@@ -3,6 +3,8 @@ import GPyOpt
 from GPyOpt.acquisitions.LCB import AcquisitionLCB
 from numpy.random import seed
 
+
+
 # seed(123)
 func = GPyOpt.objective_examples.experiments1d.synthetic()
 print('x_min:', func.min, end=' ')

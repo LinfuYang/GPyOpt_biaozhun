@@ -13,8 +13,11 @@ objective = GPyOpt.core.task.SingleObjective(func.f)
 space = GPyOpt.Design_space(space=[{'name': 'var_1', 'type': 'continuous', 'domain': (-5, 10)},
                                    {'name': 'var_2', 'type': 'continuous', 'domain': (1, 15)}])
 
-mun_point = 150
-for k in range(10, 11):
+mun_point = 200
+
+max_iter = 100
+
+for k in range(8, 12):
     model = GPyOpt.models.GPModel(optimize_restarts=5, verbose=False)
 
     acquisition_optimizer = GPyOpt.optimization.AcquisitionOptimizer(space, optimizer='GMM_UCB2', cluster_k=k,
@@ -30,7 +33,7 @@ for k in range(10, 11):
     bo = GPyOpt.methods.ModularBayesianOptimization(model, space, objective, acquisition, evaluator, initial_design,
                                                     normalize_Y=True)
 
-    max_iter = 200
+
     name = 'Branin_UCB2_%s_' % k + str(mun_point)
     bo.run_optimization(max_iter=max_iter, evaluations_file=name)
 

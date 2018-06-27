@@ -7,7 +7,7 @@ seed(123)
 func = GPyOpt.objective_examples.experiments2d.branin()
 print('x_min:', func.min, end=' ')
 print('fx_min:', func.fmin)
-func.plot()
+# func.plot()
 
 objective = GPyOpt.core.task.SingleObjective(func.f)
 
@@ -17,8 +17,12 @@ space = GPyOpt.Design_space(space=[{'name': 'var_1', 'type': 'continuous', 'doma
 
 # 聚类时采点的个数
 mun_point = 200
+
+# 最大迭代次数
+max_iter = 100
+
 # k  表示簇个数
-for k in range(5, 11):
+for k in range(5, 8):
     # 模型
     model = GPyOpt.models.GPModel(optimize_restarts=10, verbose=False)
     # 优化函数（优化AF）
@@ -38,8 +42,7 @@ for k in range(5, 11):
     # noemalize_y = False 表示先验均值为零、、TRUE表示 为训练数据的均值
     bo = GPyOpt.methods.ModularBayesianOptimization(model, space, objective, acquisition, evaluator, initial_design, normalize_Y=False)
 
-    # 最大迭代次数
-    max_iter = 200
+
 
     # 命名规则
     name = 'Branin_NN_%s_' % k + str(mun_point)

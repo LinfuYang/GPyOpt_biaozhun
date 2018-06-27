@@ -17,8 +17,12 @@ space = GPyOpt.Design_space(space=[{'name': 'var_1', 'type': 'continuous', 'doma
 
 # 聚类时采点的个数
 mun_point = 150
+
+# 最大迭代次数
+max_iter = 200
+
 # k  表示簇个数
-for k in range(5, 6):
+for k in range(8, 12):
     # 模型
     model = GPyOpt.models.GPModel(optimize_restarts=10, verbose=False)
     # 优化函数（优化AF）
@@ -37,9 +41,6 @@ for k in range(5, 6):
     # 实例化贝叶斯模型
     # noemalize_y = False 表示先验均值为零、、TRUE表示 为训练数据的均值
     bo = GPyOpt.methods.ModularBayesianOptimization(model, space, objective, acquisition, evaluator, initial_design, normalize_Y=False)
-
-    # 最大迭代次数
-    max_iter = 200
 
     # 命名规则
 

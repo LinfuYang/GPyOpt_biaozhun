@@ -144,7 +144,7 @@ def plot_convergence(Xdata, best_Y, filename=None, func_name=None):
     # Estimated m(x) at the proposed sampling points
     plt.subplot(1, 2, 2)
     plt.plot(list(range(n)), best_Y, '-o')
-    plt.text(100, y_opt+2, (x_opt, y_opt), ha='center', va='bottom', fontsize=10)
+    plt.text(50, y_opt+0.2, (x_opt, y_opt), ha='center', va='bottom', fontsize=10)
     plt.title('Value of the best selected sample ' + func_name)
     plt.xlabel('Iteration')
     plt.ylabel('Best y')
