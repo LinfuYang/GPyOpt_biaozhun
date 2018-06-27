@@ -13,6 +13,7 @@ objective = GPyOpt.core.task.SingleObjective(func.f)
 
 space = GPyOpt.Design_space(space=[{'name': 'var_1', 'type': 'continuous', 'domain': (0, 100)}])
 
+
 # 聚类时采点的个数
 mun_point = 150
 
