@@ -49,7 +49,7 @@ for k in range(4, 8):
     name = 'synthetic_NN_%s_' % k + str(mun_point)
 
     # 执行贝叶斯优化
-    bo.run_optimization(max_iter=max_iter, evaluations_file=name)
+    bo.run_optimization(max_iter=max_iter)
 
     # 画图
     bo.plot_convergence(filename=name, func_name=name)
