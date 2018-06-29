@@ -65,7 +65,9 @@ class OptGMM_NN(Optimizer):
         # print('initial_design:', np.shape(initial_design)[0])
         # print('initial_design:', initial_design[0])
 
-
+        # test_vale, sigma = f(np.array([69.64691856]))
+        # print('test_value:', test_vale)
+        # print('sigma:', sigma)
         m, n = np.shape(initial_design)
         # 用于保存每个矩阵的均值和方差
         dataSet = np.zeros((m, 2))
